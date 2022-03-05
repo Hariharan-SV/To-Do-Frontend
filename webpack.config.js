@@ -1,8 +1,14 @@
 const path = require("path");
+const webpack = require('webpack');
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
 
 module.exports = {
   mode: "development",
   entry: "./index.js",
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(dotenv.parsed)})
+  ],
   output: {
     path: path.resolve(__dirname, "./public"),
     filename: "main.js",
