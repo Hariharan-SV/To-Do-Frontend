@@ -7,7 +7,7 @@ module.exports = {
   entry: "./index.js",
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(dotenv.parsed) ? JSON.stringify(dotenv.parsed) : process.env
+      'process.env.REACT_APP_BACKEND_URL': JSON.stringify(dotenv.parsed.REACT_APP_BACKEND_URL) || process.env.REACT_APP_BACKEND_URL
     })
   ],
   output: {
