@@ -7,7 +7,7 @@ module.exports = {
   entry: "./index.js",
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': dotenv && dotenv.parsed ? JSON.stringify(dotenv.parsed) :  process.env
+      'process.env': JSON.stringify(dotenv.parsed)
     })
   ],
   output: {
