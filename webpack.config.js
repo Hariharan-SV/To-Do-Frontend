@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require('webpack');
 const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
+console.log(dotenv, process.env);
+debugger;
 
 module.exports = {
   mode: "development",
