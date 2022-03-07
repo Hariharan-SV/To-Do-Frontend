@@ -1,15 +1,13 @@
 const path = require("path");
 const webpack = require('webpack');
-const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
-console.log(dotenv, process.env);
-debugger;
+const dotenv = require('dotenv').config();
 
 module.exports = {
   mode: "development",
   entry: "./index.js",
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': dotenv ? JSON.stringify(dotenv.parsed) :  process.env
+      'process.env': dotenv && dotenv.parsed ? JSON.stringify(dotenv.parsed) :  process.env
     })
   ],
   output: {
